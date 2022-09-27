@@ -1,0 +1,22 @@
+%h1= t('categories.all_categories')
+%table
+  %thead
+    %tr
+      %th= t('categories.name')
+      %th= t('categories.description')
+      %th
+      %th
+      %th
+
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= category.name
+        %td= category.description
+        %td= link_to t(".categories.show"), category
+        %td= link_to t(".categories.back"), edit_category_path(category)
+        %td= link_to t(".categories.delete"), category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to t('categories.new_category'), new_category_path

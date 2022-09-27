@@ -1,0 +1,29 @@
+%h1 Listing tasks
+
+%table
+  %thead
+    %tr
+      %th= t(".tasks.name")
+      %th= t(".tasks.description")
+      %th= t(".tasks.due_date")
+      %th= t(".tasks.date")
+      %th= t("tasks.category")
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.name
+        %td= task.description
+        %td= task.due_date
+        %td= task.date
+        %td= task.category.name
+        %td= link_to t(".tasks.name"), task
+        %td= link_to t(".tasks.back"), edit_task_path(task)
+        %td= link_to t(".tasks.delete"), task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to t(".tasks.new_tasks"), new_task_path

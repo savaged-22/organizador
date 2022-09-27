@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b= t("categories.name") 
+  = @category.name
+%p
+  %b= t("categories.description")
+  = @category.description 
+
+= link_to 'Editar', edit_category_path(@category)
+\|
+= link_to 'Atras', categories_path

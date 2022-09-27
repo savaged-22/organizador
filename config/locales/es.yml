@@ -1,0 +1,62 @@
+---
+es:
+  categories:
+    all_categories: Categorias
+    description: Descripcion
+    back: "Atras"
+    edit: "Editar"
+    description: "Descripcion"
+    name: "Nombre"
+    edit:
+      categories:
+        back: Back
+        show: Show
+    index:
+      categories:
+        back: Back
+        delete: Delete
+        show: Show
+        name: Nombre
+    new:
+      categories:
+        back: Back
+        new_category: Nueva categoria
+    show:
+      categories:
+        
+
+  tasks:
+    category: Category
+    edit:
+      tasks:
+        show: Show
+    errors:
+      invalid_due_date: Invalid due date
+    form:
+      tasks:
+        category: Category
+        description: Description
+        due_date: Due date
+        fecha: Fecha
+        name: Name
+    index:
+      tasks:
+        back: Back
+        date: Date
+        delete: Delete
+        description: Description
+        due_date: Due date
+        name: Name
+        new_tasks: New tasks
+    new:
+      tasks:
+        back: Back
+    show:
+      tasks:
+        back: Back
+        category: Category
+        date: Date
+        description: Description
+        due_date: Due date
+        edit: Edit
+        name: Name
