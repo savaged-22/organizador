@@ -20,7 +20,7 @@
         %td= task.due_date
         %td= task.date
         %td= task.category.name
-        %td= link_to t(".tasks.name"), task
+        %td= link_to t(".tasks.edit"), task
         %td= link_to t(".tasks.back"), edit_task_path(task)
         %td= link_to t(".tasks.delete"), task, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

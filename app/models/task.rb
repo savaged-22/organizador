@@ -22,6 +22,9 @@ class Task < ApplicationRecord
   validates :name, uniqueness: {case_insensitive: true}
   #validate :validation_due_date
   validates :participating_users, presence: true
+
+
+  before_create :create_code
   #-----------methods---------------
   accepts_nested_attributes_for :participating_users, allow_destroy: true
   #This method send an message if the due_date is incorrect.
@@ -30,7 +33,18 @@ class Task < ApplicationRecord
     return if due_date > Date.today
     errors.add :due_date, I18n.t("tasks.errors.invalid_due_date") 
    end
-
+  
+   #crea un codigo antes de crear la tarea.
+   #self.name_method, es un codigo para callbacks en los modelos.
+   def create_code
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
+   end
+  
+   def send_email
+    (participant + [owner]).each do |user|
+      ParticipantMailer.with(user: --, task: self).new_task_email.deliver!
+    end
+   end
   
 
 end
